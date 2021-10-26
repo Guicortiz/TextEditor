@@ -31,7 +31,21 @@ namespace TextEditor
         }
 
         static void OpenFile()
-        { }
+        {
+            Console.Clear();
+            Console.WriteLine("Type path to file to open:");
+            string path = Console.ReadLine();
+
+            using (var file = new StreamReader(path))
+            {
+                string text = file.ReadToEnd();
+                Console.WriteLine(text);
+            }
+
+            Console.WriteLine("");
+            Console.ReadLine();
+            Menu();
+        }
         static void CreateFile()
         {
             Console.Clear();
@@ -61,7 +75,7 @@ namespace TextEditor
             }
 
             Console.WriteLine($"File successfully written in {path}");
-            Console.Read();
+            Console.ReadLine();
             Menu();
         }
     }
