@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace TextEditor
 {
@@ -54,7 +55,10 @@ namespace TextEditor
             Console.WriteLine("Type the path of file");
             var path = Console.ReadLine();
 
-
+            using (var file = new StreamWriter(path))
+            {
+                file.Write(text);
+            }
         }
     }
 }
