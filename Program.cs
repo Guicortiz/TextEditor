@@ -38,6 +38,21 @@ namespace TextEditor
             Console.WriteLine("---------------");
             string text = "";
 
+            do
+            {
+                text += Console.ReadLine();
+                text += Environment.NewLine;
+            }
+            while (Console.ReadKey().Key != ConsoleKey.Escape);
+
+            Console.Write(text);
+        }
+
+        static void SaveFile(string text)
+        {
+            Console.Clear();
+            Console.WriteLine("Type the path of file");
+            var path = Console.ReadLine();
 
 
         }
